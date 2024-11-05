@@ -7,8 +7,8 @@ parameters:
         - .castor/
     scanFiles:
         - .castor.stub.php
-    # scanDirectories:
-    #     - vendor
+    scanDirectories:
+        - vendor
     tmpDir: tools/phpstan/var
     inferPrivatePropertyTypeFromConstructor: true
 
@@ -31,3 +31,8 @@ parameters:
                 composer_cache_dir: string,
             }
         '''
+
+    ignoreErrors:
+        # - identifier: missingType.generics
+        - identifier: missingType.iterableValue
+

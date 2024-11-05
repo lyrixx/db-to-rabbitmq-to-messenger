@@ -15,9 +15,9 @@ function all(): int
     install();
     $cs = cs();
     $phpstan = phpstan();
-    // $phpunit = phpunit();
+    $phpunit = phpunit();
 
-    return max($cs, $phpstan/* , $phpunit */);
+    return max($cs, $phpstan, $phpunit);
 }
 
 #[AsTask(description: 'Installs tooling')]
@@ -38,11 +38,11 @@ function update(): void
     docker_compose_run('composer update -o', workDir: '/var/www/tools/phpstan');
 }
 
-// #[AsTask(description: 'Runs PHPUnit', aliases: ['phpunit'])]
-// function phpunit(): int
-// {
-//     return docker_exit_code('phpunit');
-// }
+#[AsTask(description: 'Runs PHPUnit', aliases: ['phpunit'])]
+function phpunit(): int
+{
+    return docker_exit_code('vendor/bin/simple-phpunit');
+}
 
 #[AsTask(description: 'Runs PHPStan', aliases: ['phpstan'])]
 function phpstan(): int

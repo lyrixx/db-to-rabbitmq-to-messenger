@@ -1,4 +1,10 @@
-# My project
+# DB to RabbitMQ to Messenger
+
+## Intro
+
+This is a **Proof Of Concept**. I wanted to explore something: Is it possible to
+automatically record DB changes to RabbitMQ, and then process them with Symfony
+Messenger. Spoiler: Yes! It works really well
 
 ## Running the application locally
 
@@ -31,6 +37,7 @@ Castor supports completion for `bash`, `zsh` & `fish` shells.
 The Docker infrastructure provides a web stack with:
  - NGINX
  - PostgreSQL
+ - RabbitMq
  - PHP
  - Traefik
  - A container with some tooling:
